@@ -80,6 +80,7 @@ export function OrbitChat() {
   const handleSubmit = useCallback(
     (message: PromptInputMessage, event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      const form = event.currentTarget;
       const text = message.text?.trim();
       if (!text || status !== "ready") return;
 
@@ -87,8 +88,8 @@ export function OrbitChat() {
         ...prev,
         { id: crypto.randomUUID(), role: "user", content: text },
       ]);
-      event.currentTarget.reset();
       streamReply();
+      form.reset();
     },
     [status, streamReply],
   );
