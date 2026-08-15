@@ -158,10 +158,7 @@ export function OrbitChat() {
                   ))}
                 </PromptInputSelectContent>
               </PromptInputSelect>
-              <PromptInputSubmit
-                status={status === "ready" ? undefined : status}
-                className="rounded-xl"
-              />
+              <PromptInputSubmit status={status} className="rounded-xl" />
             </div>
           </PromptInputFooter>
         </PromptInput>
