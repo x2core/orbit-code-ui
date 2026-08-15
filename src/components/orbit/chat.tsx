@@ -46,6 +46,7 @@ export function OrbitChat() {
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const streamReply = useCallback(() => {
+    console.log("orbit:streamReply");
     const id = crypto.randomUUID();
     setStatus("submitted");
 
@@ -88,6 +89,7 @@ export function OrbitChat() {
         ...prev,
         { id: crypto.randomUUID(), role: "user", content: text },
       ]);
+      console.log("orbit:submit", text);
       streamReply();
       form.reset();
     },
