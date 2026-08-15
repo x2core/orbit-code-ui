@@ -51,7 +51,12 @@ export function OrbitSidebar({
         collapsed ? "w-[68px]" : "w-[272px]",
       )}
     >
-      <div className="flex items-center gap-2 px-3 pb-2 pt-3">
+      <div
+        className={cn(
+          "flex items-center gap-2 px-3 pb-2 pt-3",
+          collapsed && "flex-col gap-1",
+        )}
+      >
         <img
           src={orbitLogo}
           alt="Orbit Code"
@@ -71,7 +76,6 @@ export function OrbitSidebar({
           label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           side="right"
           onClick={onToggleCollapsed}
-          className={cn(collapsed && "absolute left-1/2 top-14 -translate-x-1/2")}
         >
           {collapsed ? <ChevronsRight /> : <ChevronsLeft />}
         </IconButton>
